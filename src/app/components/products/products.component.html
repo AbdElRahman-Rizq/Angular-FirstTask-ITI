@@ -1,0 +1,22 @@
+<div class="row col-10 justify-content-between p-4 m-4">
+  <div class="card col-4 align-items-center mt-2" style="width: 18rem;" *ngFor="let imgSrc of imgsSrs; let i=index">
+    <img [src]="imgSrc" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="pt-1">Price: <span>{{ price[i] }}</span></h5>  
+      <ng-container [ngSwitch]="quantity[i]">
+        <div *ngSwitchCase="0">
+          <h6 class="mb-3">No product available</h6>
+          <button class="btn btn-danger">Sold Out</button>
+        </div>
+        <div *ngSwitchCase="1">
+      <h4 class="mb-3">Quantity: <span>{{ quantity[i] }}</span></h4> 
+          <button class="btn btn-warning">Buy Now</button>
+        </div>
+        <div *ngSwitchDefault>
+      <h4 class="mb-3">Quantity: <span>{{ quantity[i] }}</span></h4>  
+          <button class="btn btn-primary">Buy Now</button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
